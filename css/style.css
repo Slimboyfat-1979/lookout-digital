@@ -289,3 +289,41 @@ body.home .site-footer { border-radius: 44px 44px 0 0; }
   .contact-section { padding-top: 55px; }.contact-grid { grid-template-columns: 1fr; gap: 38px; }.contact-aside h2 { font-size: 43px; }.contact-form { padding: 24px 19px; }.form-row { grid-template-columns: 1fr; gap: 0; }
 }
 @media (prefers-reduced-motion: reduce) { *, *:before, *:after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }main .services-preview .service-cards { padding-bottom: 0; }main .services-preview .service-card { position: relative; top: auto; } }
+
+/* Service card motion graphics */
+.service-card > h3, .service-card > p, .service-card > .service-card-detail { position: relative; z-index: 1; }
+.lo-art { --bg: #f7f6f4; position: absolute; z-index: 0; top: 12px; right: 45px; width: 230px; height: 162px; overflow: visible; color: var(--charcoal); pointer-events: none; }
+.lo-flow { --bg: #e8e2ff; }
+.lo-art.is-armed { opacity: 0; transition: opacity 1.4s ease, transform 1.2s cubic-bezier(.22, 1, .36, 1); }
+.lo-art.is-live { opacity: 1; }
+.service-card:hover .lo-art { transform: translate(-6px, 4px); }
+.lo-ring { fill: none; stroke: currentColor; stroke-opacity: .1; }
+.lo-ring-in { stroke-opacity: .07; stroke-dasharray: 2 5; }
+.lo-line { fill: none; stroke: currentColor; stroke-opacity: .38; stroke-dasharray: 1; }
+.lo-thin { stroke-opacity: .24; }
+.lo-block { fill: currentColor; fill-opacity: .78; }
+.lo-soft { fill-opacity: .3; }
+.lo-accent { fill: var(--purple); }
+.lo-dot { fill: none; stroke: var(--purple); stroke-width: 5; stroke-linecap: round; stroke-dasharray: .001 1.2; }
+.lo-node, .lo-core-outer, .lo-core { transform-box: fill-box; transform-origin: center; }
+.lo-node { fill: var(--bg); stroke: currentColor; stroke-opacity: .6; stroke-width: 1.2; }
+.lo-core-outer { fill: var(--bg); stroke: var(--purple); stroke-width: 1.2; }
+.lo-core { fill: var(--purple); }
+.lo-hover { opacity: 0; transition: opacity .8s ease; }
+.service-card:hover .lo-hover { opacity: 1; }
+.lo-art.is-live .lo-drift { animation: lo-float 12s ease-in-out infinite alternate; }
+.lo-art.is-live .lo-line { animation: lo-draw 10s cubic-bezier(.65, 0, .35, 1) var(--d, 0s) infinite both; }
+.lo-art.is-live .lo-block, .lo-art.is-live .lo-accent { animation: lo-settle 10s cubic-bezier(.22, 1, .36, 1) var(--d, 0s) infinite both; }
+.lo-art.is-live .lo-dot { animation: lo-travel 10s cubic-bezier(.45, 0, .55, 1) var(--d, 0s) infinite both; }
+.lo-art.is-live .lo-node { animation: lo-node 10s ease-in-out var(--d, 0s) infinite both; }
+.lo-art.is-live .lo-core-outer { animation: lo-pulse 6s ease-in-out infinite; }
+.lo-art.is-offscreen *, .lo-art.is-offscreen { animation-play-state: paused !important; }
+@keyframes lo-float { from { transform: translate(0, 0); } to { transform: translate(-3px, 5px); } }
+@keyframes lo-draw { 0% { stroke-dashoffset: 1; opacity: 0; } 4% { opacity: 1; } 30% { stroke-dashoffset: 0; } 84% { stroke-dashoffset: 0; opacity: 1; } 94%, 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes lo-settle { 0% { opacity: 0; transform: translate(var(--x, 0), var(--y, 0)); } 24% { opacity: 1; transform: translate(0, 0); } 84% { opacity: 1; transform: translate(0, 0); } 94%, 100% { opacity: 0; transform: translate(0, 0); } }
+@keyframes lo-travel { 0%, 34% { stroke-dashoffset: 0; opacity: 0; } 38% { opacity: 1; } 68% { stroke-dashoffset: -1; opacity: 1; } 72%, 100% { stroke-dashoffset: -1; opacity: 0; } }
+@keyframes lo-node { 0% { opacity: 0; transform: scale(.4); } 12% { opacity: 1; transform: scale(1); } 40% { transform: scale(1.18); } 62% { transform: scale(.94); } 84% { opacity: 1; transform: scale(1); } 94%, 100% { opacity: 0; transform: scale(1); } }
+@keyframes lo-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+@media (max-width: 1000px) { .lo-art { width: 190px; height: 134px; right: 30px; } .lo-ring { display: none; } }
+@media (max-width: 680px) { .lo-art { top: 12px; right: 16px; width: 150px; height: 105px; } .lo-art.is-live { opacity: .35; } }
+@media (prefers-reduced-motion: reduce) { .lo-art, .lo-art * { animation: none !important; transition: none !important; } .lo-art.is-armed { opacity: 1; } .lo-dot { opacity: 0; } }

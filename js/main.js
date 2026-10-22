@@ -71,3 +71,21 @@ if (contactForm) {
     status.textContent = "Your email app should open with the enquiry ready to review and send.";
   });
 }
+
+const motionArts = document.querySelectorAll(".lo-art");
+if (motionArts.length) {
+  motionArts.forEach((art) => art.classList.add("is-armed"));
+  if ("IntersectionObserver" in window) {
+    const artObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const art = entry.target.querySelector(".lo-art");
+        if (!art) return;
+        if (entry.isIntersecting) art.classList.add("is-live");
+        art.classList.toggle("is-offscreen", !entry.isIntersecting);
+      });
+    }, { threshold: 0.2 });
+    motionArts.forEach((art) => artObserver.observe(art.parentElement));
+  } else {
+    motionArts.forEach((art) => art.classList.add("is-live"));
+  }
+}
