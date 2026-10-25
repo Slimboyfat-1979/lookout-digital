@@ -1,0 +1,21 @@
+﻿/* Phone orbit: all rules are scoped to .lo-orbit */
+.orbit-section { position: relative; padding-bottom: 40px; }
+.lo-orbit { position: relative; width: 100%; height: 660px; margin-top: -10px; overflow: hidden; }
+.lo-orbit__canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; pointer-events: none; }
+.lo-orbit__list { position: absolute; inset: 0; margin: 0; padding: 0; list-style: none; }
+.lo-orbit__pill { box-sizing: border-box; display: flex; align-items: center; justify-content: center; border-radius: 999px; color: var(--charcoal); font: 600 14px var(--sans); text-decoration: none; }
+.lo-orbit.is-ready .lo-orbit__pill { position: absolute; top: 0; left: 0; color: transparent; background: transparent; transform-origin: center; will-change: transform; outline-offset: 3px; }
+.lo-orbit.is-ready .lo-orbit__pill span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.lo-orbit.is-ready .lo-orbit__pill:focus-visible { outline: 2px solid var(--purple); box-shadow: 0 0 0 6px rgba(107, 78, 255, .18); }
+.lo-orbit.is-ready .lo-orbit__pill { cursor: pointer; }
+.lo-orbit.is-fallback { height: auto; padding: 24px 0 8px; overflow: visible; }
+.lo-orbit.is-fallback .lo-orbit__list { position: static; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.lo-orbit.is-fallback .lo-orbit__pill { padding: 14px 22px; border: 1px solid var(--line); background: var(--white); }
+@media (max-width: 899px) { .lo-orbit { height: 600px; } }
+@media (max-width: 519px) { .lo-orbit { height: 520px; margin-top: 0; } .orbit-section { padding-bottom: 20px; } }
+
+.hero-orbit .lo-orbit { height: 540px; margin: 0; }
+.orbit-showcase { max-width: 860px; margin-inline: auto; }
+@media (max-width: 899px) { .hero-orbit .lo-orbit { height: 460px; } }
+@media (max-width: 519px) { .hero-orbit .lo-orbit { height: 400px; } }
+

@@ -1,0 +1,1 @@
+{"name":"lookout-digital","private":true,"version":"1.0.0","scripts":{"build:orbit":"esbuild src/phone-orbit/index.js --bundle --minify --format=esm --target=es2020 --legal-comments=none --outfile=js/phone-orbit.js"},"devDependencies":{"esbuild":"^0.28.2","gsap":"^3.15.0","three":"^0.186.1"}}
