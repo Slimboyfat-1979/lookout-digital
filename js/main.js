@@ -54,22 +54,19 @@ document.querySelectorAll("[data-year]").forEach((element) => {
 
 const contactForm = document.querySelector("#contact-form");
 if (contactForm) {
-  contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const formData = new FormData(contactForm);
-    const name = String(formData.get("name")).trim();
-    const email = String(formData.get("email")).trim();
-    const projectType = String(formData.get("project-type") || "Not specified");
-    const message = String(formData.get("message")).trim();
-    const subject = encodeURIComponent(`Lookout Digital enquiry from ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nProject: ${projectType}\n\n${message}`
-    );
-    const status = document.querySelector("#form-status");
+  const status = document.querySelector("#form-status");
+  const formResult = new URLSearchParams(window.location.search).get("status");
+  const statusMessages = {
+    sent: ["Your enquiry has been sent. Thanks for getting in touch.", "success"],
+    invalid: ["Please check your details and try submitting the form again.", "error"],
+    failed: ["Your enquiry could not be sent right now. Please email hello@lookoutdigital.co.nz directly.", "error"]
+  };
+  const result = statusMessages[formResult];
 
-    window.location.href = `mailto:hello@lookoutdigital.co.nz?subject=${subject}&body=${body}`;
-    status.textContent = "Your email app should open with the enquiry ready to review and send.";
-  });
+  if (status && result) {
+    status.textContent = result[0];
+    status.dataset.state = result[1];
+  }
 }
 
 const motionArts = document.querySelectorAll(".lo-art");
