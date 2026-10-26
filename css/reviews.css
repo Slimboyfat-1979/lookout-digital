@@ -1,0 +1,33 @@
+.reviews { background: var(--off-white); overflow-x: clip; }
+.reviews .rv-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 45px; }
+.reviews .rv-head h2 { margin-bottom: 14px; }
+.reviews .rv-sub { max-width: 440px; margin: 0; color: var(--muted); font-size: 17px; }
+.reviews .rv-controls { display: flex; gap: 10px; flex: none; margin-bottom: 6px; }
+.reviews .rv-btn { width: 48px; height: 48px; display: grid; place-items: center; padding: 0; border: 1px solid #cfccc6; border-radius: 50%; background: var(--white); color: var(--charcoal); font-size: 18px; line-height: 1; cursor: pointer; transition: border-color .2s ease, background .2s ease, color .2s ease, opacity .2s ease; }
+.reviews .rv-btn:hover:not(:disabled) { border-color: var(--purple); color: var(--purple); }
+.reviews .rv-btn:disabled { opacity: .35; cursor: default; }
+.reviews .rv-btn:focus-visible, .reviews .rv-more:focus-visible, .reviews .rv-track:focus-visible, .reviews .rv-google a:focus-visible { outline: 2px solid var(--purple); outline-offset: 3px; }
+
+.reviews .rv-track { display: flex; align-items: flex-start; gap: 24px; margin: 0 -24px; padding: 8px 24px 48px; scroll-padding-inline: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+.reviews .rv-track::-webkit-scrollbar { display: none; }
+.reviews .rv-card { flex: 0 0 calc((100% - 48px) / 3); min-width: 0; display: flex; flex-direction: column; margin: 0; padding: 34px 32px 30px; scroll-snap-align: start; border: 1px solid #e3e1dc; border-radius: 20px 20px 44px 20px; background: #fff; box-shadow: 0 12px 34px rgba(44,44,42,.06); }
+.reviews .rv-topic { margin: 0 0 18px; color: var(--purple); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.reviews .rv-stars { margin: -6px 0 16px; color: var(--purple); font-size: 15px; letter-spacing: 3px; }
+.reviews .rv-quote { margin: 0 0 18px; }
+.reviews .rv-quote p { margin: 0; color: var(--charcoal); font-size: 16px; line-height: 1.7; white-space: pre-line; user-select: text; }
+.reviews .rv-more { align-self: flex-start; margin: 0 0 22px; padding: 0; border: 0; border-bottom: 1px solid currentColor; background: none; color: var(--purple); font-size: 13px; font-weight: 700; cursor: pointer; }
+.reviews .rv-who { display: flex; flex-direction: column; gap: 2px; margin-top: auto; padding-top: 20px; border-top: 1px solid #ebe9e5; }
+.reviews .rv-who cite { font-size: 15px; font-style: normal; font-weight: 700; }
+.reviews .rv-who span { color: var(--muted); font-size: 12px; }
+
+.reviews .rv-google { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 8px; padding-top: 24px; border-top: 1px solid var(--line); }
+.reviews .rv-google p { margin: 0; color: var(--muted); font-size: 13px; }
+.reviews .rv-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.reviews:not(.is-ready) .rv-controls { display: none; }
+
+@media (max-width: 1000px) { .reviews .rv-card { flex-basis: calc((100% - 24px) / 2); } }
+@media (max-width: 680px) {
+  .reviews .rv-head { flex-direction: column; align-items: flex-start; gap: 22px; margin-bottom: 32px; }
+  .reviews .rv-card { flex-basis: 88%; padding: 28px 24px 26px; }
+}
+@media (prefers-reduced-motion: reduce) { .reviews .rv-track { scroll-behavior: auto; } .reviews .rv-btn { transition: none; } }
