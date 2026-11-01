@@ -56,10 +56,13 @@ const contactForm = document.querySelector("#contact-form");
 if (contactForm) {
   const status = document.querySelector("#form-status");
   const formResult = new URLSearchParams(window.location.search).get("status");
+  const contactForm_ts = document.querySelector("#form-ts");
+  if (contactForm_ts) contactForm_ts.value = String(Math.floor(Date.now() / 1000));
+  const mailbox = ["hello", "lookoutdigital.co.nz"].join("@");
   const statusMessages = {
     sent: ["Your enquiry has been sent. Thanks for getting in touch.", "success"],
     invalid: ["Please check your details and try submitting the form again.", "error"],
-    failed: ["Your enquiry could not be sent right now. Please email hello@lookoutdigital.co.nz directly.", "error"]
+    failed: [`Your enquiry could not be sent right now. Please email ${mailbox} directly.`, "error"]
   };
   const result = statusMessages[formResult];
 
