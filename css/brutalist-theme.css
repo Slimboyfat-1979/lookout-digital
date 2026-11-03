@@ -364,7 +364,7 @@ body.home .intro-grid > div:last-child > p,
 body.home .section-heading > p,
 body.home .reviews .rv-sub { color: #b7b8ae; }
 body.home .intro-showcase,
-body.home .orbit-showcase { border: 1px solid #383a32; filter: saturate(.72); }
+body.home .orbit-showcase { border: 1px solid #383a32; background: #f0f0e8; }
 body.home .service-card {
   border: 1px solid #46483e;
   border-radius: 0;
@@ -584,3 +584,12 @@ body.home .footer-label { color: #c6f731; }
 @media (prefers-reduced-motion: reduce) {
   .ticker-track { animation: none; }
 }
+body.home .studio-split { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+body.home .studio-split .orbit-showcase { max-width: none; margin: 0; width: 100%; height: auto; display: block; }
+body.home .studio-lede { margin: 0 0 20px; font-size: 1.1rem; color: #d8d9cf; }
+body.home .studio-list { list-style: none; margin: 0 0 28px; padding: 0; border-top: 1px solid #383a32; }
+body.home .studio-list li { display: grid; grid-template-columns: 44px 1fr; gap: 12px; padding: 16px 0; border-bottom: 1px solid #383a32; }
+body.home .studio-list li > span { font-family: "IBM Plex Mono", monospace; font-size: .75rem; color: #c6f731; padding-top: 4px; }
+body.home .studio-list h3 { margin: 0 0 4px; font-size: 1.05rem; color: #f0f0e8; }
+body.home .studio-list p { margin: 0; color: #b9bbb0; font-size: .95rem; }
+@media (max-width: 899px) { body.home .studio-split { grid-template-columns: 1fr; } }
