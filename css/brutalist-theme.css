@@ -308,7 +308,7 @@ body.home .text-link span { color: #c6f731; }
 body.home .hero-note { margin-top: 34px; color: #a4a59b; font-size: 10px; }
 body.home .hero .hero-note { color: #a4a59b; }
 body.home .note-line { background: #c6f731; }
-body.home .hero-foot { width: 100%; overflow: hidden; border-block: 1px solid #45473c; color: #10110e; }
+body.home .hero-foot { width: 100%; overflow: hidden; border-block: 0; color: #10110e; }
 .ticker-track {
   width: max-content;
   display: flex;
@@ -363,9 +363,9 @@ body.home .intro-grid .body-large,
 body.home .intro-grid > div:last-child > p,
 body.home .section-heading > p,
 body.home .reviews .rv-sub { color: #b7b8ae; }
-body.home .orbit-showcase { border: 1px solid #383a32; background: #f0f0e8; }
+body.home .orbit-showcase { border: 0; background: #f0f0e8; }
 body.home .service-card {
-  border: 1px solid #46483e;
+  border: 0;
   border-radius: 0;
   background: #171914;
   box-shadow: none;
@@ -373,7 +373,7 @@ body.home .service-card {
 }
 body.home .service-card:nth-child(2) { background: #1b1d16; }
 body.home .service-card:nth-child(3) { background: #20221a; }
-body.home .service-card:hover { border-color: #c6f731; }
+
 body.home .service-card p,
 body.home .service-card:nth-child(3) p,
 body.home .service-card:nth-child(3) .card-number { color: #b7b8ae; }
@@ -480,7 +480,7 @@ body.home .service-card .lo-core-outer { stroke: #10110e; }
 body.home .service-card .lo-support { width: 250px; height: 162px; }
 body.home .feature-band {
   width: 100%;
-  border-block: 1px solid #46483e;
+  border-block: 0;
   border-radius: 0;
   background: #1b1d16;
   color: #f0f0e8;
@@ -488,14 +488,14 @@ body.home .feature-band {
 body.home .feature-grid .eyebrow { color: #c6f731; }
 body.home .feature-grid h2 em { color: #c6f731; }
 body.home .feature-grid > p { color: #b7b8ae; }
-body.home .work-card { border: 1px solid #383a32; }
+body.home .work-card { border: 0; }
 body.home .work-visual { background: #171914; }
 body.home .project-thumbnail { filter: none; }
 body.home .work-meta { padding: 17px; }
 body.home .work-meta p,
 body.home .concept-note { color: #a4a59b; }
 body.home .work-meta > span { color: #c6f731; }
-body.home .reviews .rv-card { border: 1px solid #383a32; border-radius: 0; background: #171914; box-shadow: none; }
+body.home .reviews .rv-card { border: 0; border-radius: 0; background: #171914; box-shadow: none; }
 body.home .reviews .rv-topic,
 body.home .reviews .rv-stars,
 body.home .reviews .rv-more { color: #c6f731; }
