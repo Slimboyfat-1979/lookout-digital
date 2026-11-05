@@ -363,7 +363,6 @@ body.home .intro-grid .body-large,
 body.home .intro-grid > div:last-child > p,
 body.home .section-heading > p,
 body.home .reviews .rv-sub { color: #b7b8ae; }
-body.home .intro-showcase,
 body.home .orbit-showcase { border: 1px solid #383a32; background: #f0f0e8; }
 body.home .service-card {
   border: 1px solid #46483e;
@@ -593,3 +592,9 @@ body.home .studio-list li > span { font-family: "IBM Plex Mono", monospace; font
 body.home .studio-list h3 { margin: 0 0 4px; font-size: 1.05rem; color: #f0f0e8; }
 body.home .studio-list p { margin: 0; color: #b9bbb0; font-size: .95rem; }
 @media (max-width: 899px) { body.home .studio-split { grid-template-columns: 1fr; } }
+
+@media (min-width: 900px) {
+  body.home .intro-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(32px, 4vw, 64px); align-items: center; }
+  body.home .intro-side { display: flex; align-items: center; justify-content: center; }
+  body.home .intro-showcase { width: 100%; max-width: none; border: 0; background: none; }
+}
